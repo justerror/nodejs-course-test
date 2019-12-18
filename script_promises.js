@@ -6,6 +6,13 @@ const SERVER_URL = 'https://fe.it-academy.by/Examples/words_tree/';
 const ROOT_FILE = 'root.txt';
 
 function handle(target) {
+  if (typeof target === 'string') {
+    return target;
+  }
+  if (!Array.isArray(target)) {
+    throw Error('Input must be array or string');
+  }
+
   const finalResult = [];
   let maxLevel = 1;
   let currentLevel = 0;
